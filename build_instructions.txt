@@ -1,0 +1,28 @@
+# For ahills eyes only
+
+Instructions for building this image in OSBS
+--------------------------------------------
+
+Step One: Create a dist-git repo and checkout a new branch called eng-rhel-7
+
+Step Two: SSH into rcm-dev and clone into that dist-git repo ($ git clone ssh://pkgs.devel.redhat.com/rpms/<name-of-repo>) in your home directory
+
+Step Three: SCP the files from your local machine to the folder you just made in your home directory
+
+Step Four: 'git add' the files, then
+
+$ rhpkg commit
+
+...proper commit message...
+
+$ rhpkg push
+
+$ rhpkg container-build --target eng-rhel-7-container-candidate
+
+Step Five: Wait for OSBS to build the container image
+
+...
+
+Step Six: $ sudo docker pull <whatever brew spits out as the link to the image>
+
+Congratulations! You have your very own container image! Give yourself a pat on the back!
