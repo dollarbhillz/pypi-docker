@@ -8,7 +8,7 @@ LABEL com.redhat.component="pypi-server"
 LABEL name="pypi-server-docker"  
 LABEL version="0.1"  
 
-# Install python packages
+# Install python packages (repolist output ignored in order to bypass subscription-manager)
 RUN yum repolist > /dev/null && yum install -y python-pip
 
 # Upgrade pip
